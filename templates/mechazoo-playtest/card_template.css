@@ -115,7 +115,7 @@ body {
     border: 3px solid black;
     left: 33px;
     top: 600px;
-    width: calc(100% - 72px);
+    width: 684px;
     height: 420px;
     background-color: white;
     & > p {

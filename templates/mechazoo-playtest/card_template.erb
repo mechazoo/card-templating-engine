@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="card_template.css" />
+    </head>
+    <body>
+        <div id="card-frame-outer">
+            <div id="card-image-container">
+                <img />
+            </div>
+            <div id="card-frame-inner">
+                <div id="energy-frame">
+                    <%# this fills the top-left box in the example image.%>
+                    <p><%= energy %></p>
+                </div>
+                <div id="cardname-box">
+                    <%# this fills the card name area at the top of the example image %>
+                    <p><%= cardname %></p>
+                </div>
+                <div id="scrap-value-box">
+                    <p><%= scrap_cost %></p>
+                    <p><%= scrap_value %></p>
+                </div>
+                <div id="card-type-box">
+                    <% case cardtype when 'action' %>
+                        <p>!</p>
+                    <% when 'attachment' %>
+                        <p>@</p>
+                    <% when 'scrap' %>
+                        <p>$</p>
+                    <% when 'assistant'%>
+                        <p>?</p>
+                    <% else %>
+                        <p>&</p>
+                    <% end %>
+                </div>
+                <div id="card-text-box">
+                    <div id="typeline-box">
+                        <p><%= typeline %></p>
+                    </div>
+                    <p>Limit <%= limit %></p>
+                    <p><%= text %></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

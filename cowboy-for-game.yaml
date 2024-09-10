@@ -1,8 +1,0 @@
-name: Cowboy for Game
-energy: 0
-type: action
-scrap-cost: 1
-scrap-value: 3
-typeline: Scrapper Energy Weapon
-limit: 2
-text: If your opponent's mech has 1 remaining integrity, deal 1 integrity damage to it.

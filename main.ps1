@@ -1,0 +1,1 @@
+ruby.exe ./main.rb $1 $2

@@ -1,0 +1,138 @@
+html {
+    width: 756px;
+    height: 1056px;
+    margin: 0;
+}
+
+body {
+    width: 756px;
+    height: 1056px;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    text-rendering: geometricPrecision;
+}
+#card-frame-outer {
+    background-color: black;
+    width: 756px;
+    height: 1056px;
+    border-radius: 36px;
+    z-index: 256;
+}
+#card-frame-inner {
+    background-color: green;
+    position: absolute;
+    top: 36px;
+    left: 36px;
+    width: 684px;
+    height: 984px;
+    border-radius: 18px;
+    z-index: 0;
+}
+
+#card-image-container {
+    z-index: 1;
+}
+
+#energy-frame {
+    border-radius: 36px 0px;
+    background-color: white;
+    border: 12px solid black;
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    width: 162px;
+    height: 210px;
+    & > p {
+        text-align: center;
+        vertical-align: middle;
+        line-height: 210px;
+        font-size: 140px;
+        height:inherit;
+        width: inherit;
+        margin: 0
+    }
+}
+
+#cardname-box {
+    position: fixed;
+    top: 60px;
+    left: 212px;
+    width: 396px;
+    & > p {
+        width: 100%;
+        text-align: center;
+        font-size: 48px;
+        margin: 0;
+        --o-offset: 2px;
+        --o-off-neg: calc(var(--o-offset) * -1);
+        --o-color: #FFF;
+        text-shadow: 
+            var(--o-off-neg) var(--o-off-neg) 0 var(--o-color), 
+            var(--o-offset) var(--o-off-neg) 0 var(--o-color), 
+            var(--o-off-neg) var(--o-offset) 0 var(--o-color), 
+            var(--o-offset) var(--o-offset) 0 var(--o-color);
+    }
+}
+
+#scrap-value-box {
+    position: fixed;
+    height: 186px;
+    width: 93px;
+    border-radius: 93px;
+    border: 6px solid black;
+    background-color: white;
+    left: 603px;
+    top: 48px;
+    & > p {
+        width: 93px;
+        line-height: 93px;
+        text-align: center;
+        margin: 0;
+        font-size: 46px;
+    }
+}
+
+#card-type-box {
+    position: fixed;
+    left: 48px;
+    top: 246px;
+    height: 100px;
+    width: 100px;
+    border: 12px solid black;
+    border-bottom-left-radius: 36px;
+    border-bottom-right-radius: 36px;
+    background-color: white;
+    & > p {
+        font-size: 72px;
+        margin: 0;
+        text-align: center;
+    }
+}
+
+#card-text-box {
+    position: fixed;
+    border: 3px solid black;
+    left: 33px;
+    top: 600px;
+    width: calc(100% - 72px);
+    height: 420px;
+    background-color: white;
+    & > p {
+        margin: 0;
+        padding: 6px;
+        font-size: 30px;
+        text-align: center;
+    }
+}
+
+#typeline-box {
+    height: 60px;
+    border-bottom: 2px solid black;
+    & > p {
+        text-align: center;
+        line-height: 60px;
+        margin: 0;
+        font-size: 36px;
+    }
+}

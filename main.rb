@@ -8,14 +8,14 @@ if $PROGRAM_NAME == __FILE__ then
         print_help()
     else 
         option, val = ARGV
-        renderer = Renderer.new
         case option
         when 'set'
-            renderer.render_set(val)
+            renderer = Renderer.new val
+            renderer.render_set
         when 'card'
             set, card = val.split('/')
-            puts set, card
-            renderer.render_card(set, card)
+            renderer = Renderer.new set
+            renderer.render_card(card)
         else
             print_help()
         end

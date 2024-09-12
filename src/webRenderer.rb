@@ -1,4 +1,4 @@
-require 'webdrivers'
+require 'selenium-webdriver'
 require 'erb'
 
 class WebRenderer 

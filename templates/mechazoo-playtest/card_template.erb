@@ -8,38 +8,66 @@
                 <img />
             </div>
             <div id="card-frame-inner">
-                <div id="energy-frame">
-                    <%# this fills the top-left box in the example image.%>
-                    <p><%= energy %></p>
-                </div>
-                <div id="cardname-box">
+                <% if defined? play_energy_cost %>
+                    <div id="energy-frame">
+                        <%# this fills the top-left box in the example image.%>
+                        <p><%= play_energy_cost %></p>
+                    </div>
+                <% end %>
+                <% if defined? activation_energy_cost %>
+                    <div id="scrap-value-box">
+                        <p><%= activation_energy_cost %></p>
+                    </div>
+                <% end %>
+                <% if defined? cardname %>
+                <div id="cardname-box" <%= "class=\"center\"" if cardtype == 'mech' %>>
                     <%# this fills the card name area at the top of the example image %>
                     <p><%= cardname %></p>
                 </div>
-                <div id="scrap-value-box">
-                    <p><%= scrap_cost %></p>
-                    <p><%= scrap_value %></p>
-                </div>
-                <div id="card-type-box">
-                    <% case cardtype when 'action' %>
-                        <p>!</p>
-                    <% when 'attachment' %>
-                        <p>@</p>
-                    <% when 'scrap' %>
-                        <p>$</p>
-                    <% when 'assistant'%>
-                        <p>?</p>
+                <% end %>
+                <% if defined? cardtype %>
+                    <% unless cardtype == 'mech' %>
+                        <div id="card-type-box">
+                            <% case cardtype when 'action' %>
+                                <p>!</p>
+                            <% when 'attachment' %>
+                                <p>@</p>
+                            <% when 'scrap' %>
+                                <p>$</p>
+                            <% when 'assistant'%>
+                                <p>?</p>
+                            <% else %>
+                                <p>&</p>
+                            <% end %>
+                        </div>
                     <% else %>
-                        <p>&</p>
+                        <div id="energy-capacity">
+                            <p><%= energy_capacity %></p>
+                        </div>
+                        <div id="scrap-per-turn">
+                            <p><%= scrap_per_turn %>
+                        </div>
                     <% end %>
-                </div>
+                <% end %>
                 <div id="card-text-box">
+                    <% if defined? typeline %>
                     <div id="typeline-box">
                         <p><%= typeline %></p>
                     </div>
-                    <p>Limit <%= limit %></p>
-                    <p><%= text %></p>
+                    <% end %>
+                    <% if defined? limit %>
+                        <p>Limit <%= limit %></p>
+                    <% end %>
+                    <% if defined? text%>   
+                        <p><%= text %></p>
+                    <% end %>
                 </div>
+                <%# place a jewel or other marker here for durability, place it at the bottom left of the card. 12mm, 144px %>
+                <% if defined? durability_base %>
+                    <div id="durability_base_box" <%= 'class="mech"' if cardtype == 'mech' %>>
+                        <p><%= durability_base %></p>
+                    </div>
+                <% end %>
             </div>
         </div>
     </body>

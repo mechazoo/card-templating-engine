@@ -6,5 +6,5 @@ source "https://rubygems.org"
 
 gem 'filewatcher'
 gem 'grover'
-gem "webdrivers", "~> 5.3"
+gem 'selenium-webdriver', '~> 4.24'
 gem 'solargraph'

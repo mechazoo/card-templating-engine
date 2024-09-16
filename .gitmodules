@@ -1,3 +1,6 @@
 [submodule "sets/mechazoo-base-set"]
 	path = sets/mechazoo-base-set
 	url = git@github.com:ChristopherJTrent/mechazoo-base-set
+[submodule "templates/base-set"]
+	path = templates/base-set
+	url = git@github.com:mechazoo/base_set.git

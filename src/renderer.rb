@@ -43,10 +43,12 @@ class Renderer
         @@erb_template_cache[template_name] ||= File.read("templates/#{template_name}/card_template.erb")
     end
     def Renderer.ensureOutputDirectory(set_name)
-        unless defined? @@set_cache[set_name]
-            Dir.mkdir("out") unless Dir.exist? "out"
-            Dir.mkdir("out/#{set_name}") unless Dir.exist? "out/#{set_name}"
-            @@set_cache[set_name] = true
+        unless @@set_cache[set_name]
+            unless Dir.exist? "out/#{set_name}"
+                puts "ensuring output directory for #{set_name}"
+                FileUtils.mkdir_p("out/#{set_name}")
+                @@set_cache[set_name] = true
+            end
         end
     end
 end

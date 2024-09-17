@@ -2,6 +2,7 @@ require 'selenium-webdriver'
 require 'yaml'
 require 'erb'
 require 'fileutils'
+require 'base64'
 require_relative 'webRenderer.rb'
 
 class Renderer 
@@ -27,17 +28,16 @@ class Renderer
         template_name = YAML.safe_load(File.read("sets/#{@set_name}/set.yaml"))["template"]
         template_name = content['template_override'] if content.key? 'template_override'
         template_file = File.read("templates/#{template_name}/card_template.erb")
+        content['css_data'] = Base64.encode64(File.read("templates/#{template_name}/card_template.css"))
         erb_handler = ERB.new template_file
         unless @output_ensured
             Dir.mkdir('out') unless Dir.exist?('out')
             Dir.mkdir("out/#{@set_name}") unless Dir.exist?("out/#{@set_name}")
             @output_ensured = true
         end
-        File.write("templates/#{template_name}/temp.html", erb_handler.result_with_hash(content))
-        @renderer_context.performRender(
-            template_name,
+        @renderer_context.performStringRender(
+            erb_handler.result_with_hash(content),
             "out/#{@set_name}/#{cardname}.png"
         )
-        FileUtils.rm_f("templates/#{template_name}/temp.html")
     end
 end

@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href="card_template.css" />
+        <link rel="stylesheet" href="data:text/css;base64,<%= css_data %>" />
     </head>
     <body>
         <div id="card-frame-outer">
@@ -30,14 +30,12 @@
                         <div id="card-type-box">
                             <% case cardtype when 'action' %>
                                 <p>!</p>
-                            <% when 'attachment' %>
+                            <% when 'part' %>
                                 <p>@</p>
-                            <% when 'scrap' %>
+                            <% when 'crew' %>
                                 <p>$</p>
-                            <% when 'assistant'%>
-                                <p>?</p>
                             <% else %>
-                                <p>&</p>
+                                <p><%=cardtype%></p>
                             <% end %>
                         </div>
                     <% else %>

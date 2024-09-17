@@ -27,8 +27,11 @@ class Renderer
     
     def render_card(cardname)
         card_data = YAML.safe_load_file "sets/#{@set_name}/cards/#{cardname}.yaml", fallback: {}
-        #template_name = card_data['template_override'] if card_data.key? 'template_override'
-        card_data['css_data'] = Renderer.getCSS @template_name
+        if card_data.key? 'template_override' then
+            card_data['css_data'] = Renderer.getCSS card_data['template_override']
+        else
+            card_data['css_data'] = Renderer.getCSS @template_name
+        end
         Renderer.ensureOutputDirectory @set_name
         handler = ERB.new Renderer.getERB @template_name
         @renderer_context.performStringRender(

@@ -3,6 +3,7 @@ require 'yaml'
 require 'erb'
 require 'fileutils'
 require 'base64'
+require 'redcarpet'
 require_relative 'webRenderer.rb'
 
 class Renderer 
@@ -32,10 +33,16 @@ class Renderer
         else
             card_data['css_data'] = Renderer.getCSS @template_name
         end
+        if card_data.key? 'text' and card_data['text'].start_with? "md\n" then
+            md = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: false, tables: false)
+            card_data['text'] = md.render(card_data['text'].sub("md\n", ""))
+        end
         Renderer.ensureOutputDirectory @set_name
         handler = ERB.new Renderer.getERB @template_name
+        val = handler.result_with_hash(card_data)
+        puts val
         @renderer_context.performStringRender(
-            handler.result_with_hash(card_data),
+            val,
             "out/#{@set_name}/#{cardname}.png"
         )
     end

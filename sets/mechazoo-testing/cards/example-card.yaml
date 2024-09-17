@@ -5,3 +5,7 @@ cardtype: B
 typeline: Typeline
 limit: X
 durability_base: D
+text: |
+      md
+      *bold*  
+      ability 

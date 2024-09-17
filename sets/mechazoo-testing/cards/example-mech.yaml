@@ -1,0 +1,7 @@
+cardname: Card Name
+cardtype: mech
+typeline: Typeline
+limit: 1
+durability_base: C
+energy_capacity: A
+scrap_per_turn: B

@@ -1,0 +1,7 @@
+play_energy_cost: A
+cardname: Card Name
+activation_energy_cost: C
+cardtype: B
+typeline: Typeline
+limit: X
+durability_base: D

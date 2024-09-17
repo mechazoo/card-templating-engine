@@ -1,0 +1,6 @@
+{
+    "yaml.schemas": {
+        "./schemae/cards.json": "**/cards/*.yaml",
+        "./schemae/set.json": "set.yaml"
+    }
+}

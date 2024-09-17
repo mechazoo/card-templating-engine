@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "mechazoo/set_schema",
+    "title": "Mechazoo Set Schema",
+    "description": "the default schema for set.yaml files",
+    "type": "object",
+    "properties": {
+        "template": {
+            "type": "string",
+            "description": "the name of the template to be used for this set"
+        },
+        "height": {
+            "type":"integer",
+            "description": "window height at which cards should be rendered. device-specific"
+        },
+        "width": {
+            "type": "integer",
+            "description": "window width at which cards should be rendered. device specific"
+        }
+    },
+    "required": ["template", "height", "width"]
+}

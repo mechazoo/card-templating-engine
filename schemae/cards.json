@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "mechazoo/card_schema",
+    "title": "Mechazoo Card Schema",
+    "description": "A schema for mechazoo card.yaml files.",
+    "type": "object",
+    "properties": {
+        "play_scrap_cost": {
+            "type": "number",
+            "description": "Amount of scrap to play this card"
+        },
+        "activation_energy_cost": {
+            "type": "number",
+            "description": "amount of energy to activate this card"
+        },
+        "cardname": {
+            "type": "string",
+            "description": "The name of the card"
+        },
+        "cardtype": {
+            "type": "string",
+            "description": "the type of the card",
+            "enum": ["action", "part", "crew", "mech"]
+        },
+        "typeline": {
+            "type": "string",
+            "description": "the extra types of the card"
+        },
+        "energy_capacity": {
+            "type": "integer",
+            "description": "how much energy this mech can supply"
+        },
+        "scrap_per_turn": {
+            "type": "integer",
+            "description": "how much scrap you get at the beginning of the build phase"
+        },
+        "limit": {
+            "type": "integer",
+            "description": "The maximum number of copies of this card you can play in your deck, if it's not 4."
+        },
+        "text": {
+            "type": "string",
+            "description": "The text of this card. See base-set/drill-arm for an example of how to use markdown."
+        },
+        "durability_base": {
+            "type": "integer",
+            "description": "how much durability this card starts with."
+        }
+    },
+    "required": ["cardname", "cardtype"]
+}

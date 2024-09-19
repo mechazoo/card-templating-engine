@@ -131,11 +131,19 @@ body {
     width: 684px;
     height: 420px;
     background-color: white;
-    & > p {
+    & p {
         margin: 0;
         padding: 6px;
         font-size: 30px;
         text-align: center;
+
+        &.large {
+            font-size: 48px;
+        }
+
+        &.extra_large {
+            font-size: 60px;
+        }
     }
 }
 

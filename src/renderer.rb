@@ -38,11 +38,9 @@ class Renderer
             card_data['text'] = md.render(card_data['text'].sub("md\n", ""))
         end
         Renderer.ensureOutputDirectory @set_name
-        handler = ERB.new Renderer.getERB @template_name
-        val = handler.result_with_hash(card_data)
-        puts val
+        handler = ERB.new Renderer.getERB @template_name 
         @renderer_context.performStringRender(
-            val,
+            handler.result_with_hash(card_data)
             "out/#{@set_name}/#{cardname}.png"
         )
     end
@@ -55,7 +53,6 @@ class Renderer
     def Renderer.ensureOutputDirectory(set_name)
         unless @@set_cache[set_name]
             unless Dir.exist? "out/#{set_name}"
-                puts "ensuring output directory for #{set_name}"
                 FileUtils.mkdir_p("out/#{set_name}")
                 @@set_cache[set_name] = true
             end

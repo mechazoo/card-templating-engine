@@ -6,7 +6,7 @@ class WebRenderer
     def initialize(width, height) 
         @width = width
         @height = height
-        driverOptions = Selenium::WebDriver::Options.chrome(args: ['--headless=new'])
+        driverOptions = Selenium::WebDriver::Options.chrome(args: ['--headless'])
         @driver = Selenium::WebDriver.for :chrome, options: driverOptions
     end
 

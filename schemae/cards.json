@@ -45,6 +45,11 @@
         "durability_base": {
             "type": "integer",
             "description": "how much durability this card starts with."
+        },
+        "text_size": {
+            "type": "string",
+            "description": "should the text be larger?",
+            "enum": ["large", "larger"]
         }
     },
     "required": ["cardname", "cardtype"]
